@@ -12,7 +12,7 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: 'latest'  # Ensures the latest Flutter (and Dart SDK) is used
+        flutter-version: '3.22.1'  # Ensures the latest Flutter (and Dart SDK) is used
 
     - name: Install Dependencies
       run: flutter pub get
