@@ -1,18 +1,21 @@
-name: iOS Build
+name: Flutter CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Flutter
-      uses: subosito/flutter-action@v1
+      uses: subosito/flutter-action@v2
       with:
-        flutter-version: '2.10.0'
+        flutter-version: 'latest'  # Ensures the latest Flutter (and Dart SDK) is used
+
     - name: Install Dependencies
       run: flutter pub get
+
     - name: Build iOS
       run: flutter build ios --no-codesign
